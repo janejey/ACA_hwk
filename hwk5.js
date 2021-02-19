@@ -2,14 +2,14 @@
 function possibleArrays(arr, time) {
     let result = [];
     function subArr(i, arr2) {
-        if (i === arr.length) {
+        if (time === arr2.length) {
+            result.push(arr2);
             return result;
-            } else if (time === arr2.length) {
-                result.push(arr2);
-                return result;
-            } else {
-                subArr(i + 1, arr2.concat([arr[i]]));
-              }
+        } else if (i === arr.length) {
+            return result;
+        } else {
+            subArr(i + 1, arr2.concat([arr[i]]));
+        }
         subArr(i + 1, arr2);
     }
     subArr(0, []);
